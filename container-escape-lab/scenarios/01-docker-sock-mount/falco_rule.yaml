@@ -1,0 +1,7 @@
+# Detect direct Docker API socket use from a container; socket access is equivalent to high Docker control.
+- rule: Container Accessed Docker Socket
+  desc: Detect a container process opening the Docker daemon socket.
+  condition: container and (fd.name=/var/run/docker.sock or proc.cmdline contains docker.sock)
+  output: "Container accessed Docker socket (user=%user.name command=%proc.cmdline file=%fd.name container=%container.name)"
+  priority: CRITICAL
+  tags: [container, mitre_privilege_escalation, T1611]

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">Sample Falco JSON alert</title><desc id="desc">Illustrative terminal showing a critical Docker socket alert from the safe lab.</desc>
+  <rect width="1200" height="600" fill="#0d1117"/><rect x="25" y="22" width="1150" height="556" rx="12" fill="#161b22" stroke="#30363d"/>
+  <circle cx="55" cy="51" r="9" fill="#ff5f57"/><circle cx="83" cy="51" r="9" fill="#febc2e"/><circle cx="111" cy="51" r="9" fill="#28c840"/>
+  <text x="145" y="57" font-family="monospace" font-size="20" fill="#c9d1d9">screenshots/01-alert.log — sample</text>
+  <g font-family="monospace" font-size="25" fill="#c9d1d9"><text x="65" y="125" fill="#7ee787">$ ./run-lab.sh 1</text><text x="65" y="180">{</text><text x="95" y="225">"rule": <tspan fill="#a5d6ff">"Container Accessed Docker Socket"</tspan>,</text><text x="95" y="270">"priority": <tspan fill="#ff7b72">"Critical"</tspan>,</text><text x="95" y="315">"container.name": <tspan fill="#a5d6ff">"lab-docker-sock"</tspan>,</text><text x="95" y="360">"fd.name": <tspan fill="#a5d6ff">"/var/run/docker.sock"</tspan></text><text x="65" y="405">}</text><text x="65" y="485" fill="#7ee787">SAFE: read-only version request completed; no escape attempted.</text></g>
+</svg>

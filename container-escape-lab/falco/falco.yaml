@@ -1,0 +1,4 @@
+# Minimal lab configuration. Invoke Falco with -r for the selected scenario rule.
+json_output: true
+rules_file:
+  - ../scenarios/01-docker-sock-mount/falco_rule.yaml

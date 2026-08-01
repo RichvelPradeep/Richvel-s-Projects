@@ -1,0 +1,7 @@
+# Legacy cgroup release-agent settings can cause host-context execution when writable from a container.
+- rule: Cgroup Release Agent Modification
+  desc: Detect writes to cgroup release_agent or notify_on_release controls.
+  condition: container and evt.type in (open, openat) and evt.is_open_write=true and (fd.name endswith /release_agent or fd.name endswith /notify_on_release)
+  output: "Cgroup release-agent control modified (user=%user.name command=%proc.cmdline file=%fd.name container=%container.name)"
+  priority: CRITICAL
+  tags: [container, mitre_privilege_escalation, T1611]

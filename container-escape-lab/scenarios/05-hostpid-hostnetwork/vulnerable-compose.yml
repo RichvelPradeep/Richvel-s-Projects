@@ -1,0 +1,9 @@
+services:
+  lab:
+    image: alpine:3.20
+    container_name: lab-hostpid-hostnetwork
+    pid: host
+    network_mode: host
+    command: ["sh", "-c", "apk add --no-cache bash procps iproute2 && tail -f /dev/null"]
+    volumes:
+      - ./exploit.sh:/lab/exploit.sh:ro

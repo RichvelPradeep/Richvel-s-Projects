@@ -1,0 +1,7 @@
+# Writes to core_pattern or sysrq-trigger can alter host kernel behavior or trigger dangerous actions.
+- rule: Sensitive Proc Sysctl Write
+  desc: Detect container writes to core_pattern or sysrq-trigger.
+  condition: container and evt.type in (open, openat) and evt.is_open_write=true and (fd.name endswith /sys/kernel/core_pattern or fd.name endswith /sysrq-trigger)
+  output: "Sensitive proc control write (user=%user.name command=%proc.cmdline file=%fd.name container=%container.name)"
+  priority: CRITICAL
+  tags: [container, mitre_privilege_escalation, T1611]

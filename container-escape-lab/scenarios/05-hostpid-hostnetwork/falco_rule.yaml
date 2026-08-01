@@ -1,0 +1,7 @@
+# Detect attempts to enter host namespaces via nsenter or access host root filesystem via /proc/1/root from a container.
+- rule: Container Host Namespace Access
+  desc: Detect nsenter execution or access to init's host-root proc path from a container.
+  condition: container and (proc.cmdline contains "nsenter" or fd.name startswith /proc/1/root)
+  output: "Container host namespace access attempt (user=%user.name command=%proc.cmdline container=%container.name)"
+  priority: CRITICAL
+  tags: [container, mitre_privilege_escalation, T1611]

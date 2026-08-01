@@ -1,0 +1,10 @@
+services:
+  lab:
+    image: alpine:3.20
+    container_name: lab-writable-proc
+    security_opt:
+      - seccomp:unconfined
+    command: ["sh", "-c", "apk add --no-cache bash && tail -f /dev/null"]
+    volumes:
+      - /proc:/host-proc:rw
+      - ./exploit.sh:/lab/exploit.sh:ro

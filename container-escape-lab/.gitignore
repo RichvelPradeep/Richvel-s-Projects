@@ -1,0 +1,10 @@
+# Runtime and local evidence
+screenshots/*-alert.log
+!screenshots/.gitkeep
+!screenshots/*-sample.svg
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

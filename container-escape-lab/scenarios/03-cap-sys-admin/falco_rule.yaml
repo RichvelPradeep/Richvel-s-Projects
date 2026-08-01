@@ -1,0 +1,7 @@
+# Mount syscalls in containers warrant scrutiny because SYS_ADMIN can erode filesystem isolation.
+- rule: Unexpected Container Mount
+  desc: Detect mount syscalls issued by container processes.
+  condition: container and evt.type=mount
+  output: "Container mount syscall (user=%user.name command=%proc.cmdline container=%container.name)"
+  priority: CRITICAL
+  tags: [container, mitre_privilege_escalation, T1611]

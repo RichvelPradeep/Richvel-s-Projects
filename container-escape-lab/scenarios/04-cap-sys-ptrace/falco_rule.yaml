@@ -1,0 +1,7 @@
+# Ptrace targeting a process outside the container's namespace can enable injection or data theft.
+- rule: Cross-Namespace Ptrace Attempt
+  desc: Detect ptrace syscalls from container processes.
+  condition: container and evt.type=ptrace
+  output: "Container ptrace attempt (user=%user.name command=%proc.cmdline container=%container.name)"
+  priority: CRITICAL
+  tags: [container, mitre_process_injection, T1055]
